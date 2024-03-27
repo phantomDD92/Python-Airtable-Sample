@@ -1,9 +1,14 @@
 from airtable import Airtable
+from dotenv import load_dotenv
+import os
 
-# Replace these with your Airtable API key, base ID, and table name
-AIRTABLE_API_KEY = 'your_airtable_api_key'
-AIRTABLE_BASE_ID = 'your_airtable_base_id'
-AIRTABLE_TABLE_NAME = 'your_airtable_table_name'
+# Load environment variables from .env file
+load_dotenv()
+
+# Get Airtable credentials from environment variables
+AIRTABLE_API_KEY = os.getenv('AIRTABLE_API_KEY')
+AIRTABLE_BASE_ID = os.getenv('AIRTABLE_BASE_ID')
+AIRTABLE_TABLE_NAME = os.getenv('AIRTABLE_TABLE_NAME')
 
 # Initialize Airtable instance
 airtable = Airtable(AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME, api_key=AIRTABLE_API_KEY)
